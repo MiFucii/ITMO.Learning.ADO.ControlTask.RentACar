@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище RetroCarModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="t_ArchiveСontract">
+          <Key>
+            <PropertyRef Name="IDContract" />
+          </Key>
+          <Property Name="IDContract" Type="int" Nullable="false" />
+          <Property Name="CarNumber" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="IDClient" Type="int" Nullable="false" />
+          <Property Name="IDManager" Type="int" Nullable="false" />
+          <Property Name="DateStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="DateEnd" Type="smalldatetime" Nullable="false" />
+          <Property Name="Summa" Type="money" Nullable="false" />
+          <Property Name="DateOfConclusion" Type="date" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Cause" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_Car">
+          <Key>
+            <PropertyRef Name="CarNumber" />
+          </Key>
+          <Property Name="CarNumber" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="IDInfoAuto" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cause" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_Client">
+          <Key>
+            <PropertyRef Name="IDClient" />
+          </Key>
+          <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="PassportNumber" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="PassportSeries" Type="char" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_InfoCar">
+          <Key>
+            <PropertyRef Name="IDInfoAuto" />
+          </Key>
+          <Property Name="IDInfoAuto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberOfSeats" Type="smallint" />
+          <Property Name="YearOfR" Type="smallint" />
+          <Property Name="VINNumber" Type="varchar" MaxLength="17" />
+          <Property Name="BodyColor" Type="nvarchar" MaxLength="30" />
+          <Property Name="HP" Type="smallint" />
+          <Property Name="Mileage" Type="int" />
+        </EntityType>
+        <EntityType Name="t_Manager">
+          <Key>
+            <PropertyRef Name="IDManager" />
+          </Key>
+          <Property Name="IDManager" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Earnings" Type="money" />
+        </EntityType>
+        <EntityType Name="t_Сontract">
+          <Key>
+            <PropertyRef Name="IDContract" />
+          </Key>
+          <Property Name="IDContract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarNumber" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="IDClient" Type="int" Nullable="false" />
+          <Property Name="IDManager" Type="int" Nullable="false" />
+          <Property Name="DateStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="DateEnd" Type="smalldatetime" Nullable="false" />
+          <Property Name="Summa" Type="money" />
+          <Property Name="DateOfConclusion" Type="date" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="9" />
+          <Property Name="Cause" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "RentRetroCar.RetroCar.v_InfoCar" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="v_InfoCar">
+          <Key>
+            <PropertyRef Name="Brand" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="CarNumber" />
+          </Key>
+          <Property Name="Brand" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CarNumber" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cause" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="Car_FK">
+          <End Role="t_InfoCar" Type="Self.t_InfoCar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Car" Type="Self.t_Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_InfoCar">
+              <PropertyRef Name="IDInfoAuto" />
+            </Principal>
+            <Dependent Role="t_Car">
+              <PropertyRef Name="IDInfoAuto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Сontract_t_Car">
+          <End Role="t_Car" Type="Self.t_Car" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Сontract" Type="Self.t_Сontract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Car">
+              <PropertyRef Name="CarNumber" />
+            </Principal>
+            <Dependent Role="t_Сontract">
+              <PropertyRef Name="CarNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Сontract_t_Client">
+          <End Role="t_Client" Type="Self.t_Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Сontract" Type="Self.t_Сontract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Client">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="t_Сontract">
+              <PropertyRef Name="IDClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Сontract_t_Manager">
+          <End Role="t_Manager" Type="Self.t_Manager" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Сontract" Type="Self.t_Сontract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Manager">
+              <PropertyRef Name="IDManager" />
+            </Principal>
+            <Dependent Role="t_Сontract">
+              <PropertyRef Name="IDManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_FreeCarOfDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RetroCar">
+          <Parameter Name="dateStart" Type="smalldatetime" Mode="In" />
+          <Parameter Name="dateEnd" Type="smalldatetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище RetroCarModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_ArchiveСontract" EntityType="Self.t_ArchiveСontract" Schema="RetroCar" store:Type="Tables" />
+          <EntitySet Name="t_Car" EntityType="Self.t_Car" Schema="RetroCar" store:Type="Tables" />
+          <EntitySet Name="t_Client" EntityType="Self.t_Client" Schema="RetroCar" store:Type="Tables" />
+          <EntitySet Name="t_InfoCar" EntityType="Self.t_InfoCar" Schema="RetroCar" store:Type="Tables" />
+          <EntitySet Name="t_Manager" EntityType="Self.t_Manager" Schema="RetroCar" store:Type="Tables" />
+          <EntitySet Name="t_Сontract" EntityType="Self.t_Сontract" Schema="RetroCar" store:Type="Tables" />
+          <EntitySet Name="v_InfoCar" EntityType="Self.v_InfoCar" store:Type="Views" store:Schema="RetroCar">
+            <DefiningQuery>SELECT 
+    [v_InfoCar].[Brand] AS [Brand], 
+    [v_InfoCar].[Model] AS [Model], 
+    [v_InfoCar].[CarNumber] AS [CarNumber], 
+    [v_InfoCar].[Price] AS [Price], 
+    [v_InfoCar].[Status] AS [Status], 
+    [v_InfoCar].[Cause] AS [Cause]
+    FROM [RetroCar].[v_InfoCar] AS [v_InfoCar]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="Car_FK" Association="Self.Car_FK">
+            <End Role="t_InfoCar" EntitySet="t_InfoCar" />
+            <End Role="t_Car" EntitySet="t_Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Сontract_t_Car" Association="Self.FK_t_Сontract_t_Car">
+            <End Role="t_Car" EntitySet="t_Car" />
+            <End Role="t_Сontract" EntitySet="t_Сontract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Сontract_t_Client" Association="Self.FK_t_Сontract_t_Client">
+            <End Role="t_Client" EntitySet="t_Client" />
+            <End Role="t_Сontract" EntitySet="t_Сontract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Сontract_t_Manager" Association="Self.FK_t_Сontract_t_Manager">
+            <End Role="t_Manager" EntitySet="t_Manager" />
+            <End Role="t_Сontract" EntitySet="t_Сontract" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RetroCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="t_ArchiveСontract">
+          <Key>
+            <PropertyRef Name="IDContract" />
+          </Key>
+          <Property Name="IDContract" Type="Int32" Nullable="false" />
+          <Property Name="CarNumber" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDClient" Type="Int32" Nullable="false" />
+          <Property Name="IDManager" Type="Int32" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Summa" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DateOfConclusion" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_Car">
+          <Key>
+            <PropertyRef Name="CarNumber" />
+          </Key>
+          <Property Name="CarNumber" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDInfoAuto" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t_InfoCar" Relationship="Self.Car_FK" FromRole="t_Car" ToRole="t_InfoCar" />
+          <NavigationProperty Name="t_Сontract" Relationship="Self.FK_t_Сontract_t_Car" FromRole="t_Car" ToRole="t_Сontract" />
+        </EntityType>
+        <EntityType Name="t_Client">
+          <Key>
+            <PropertyRef Name="IDClient" />
+          </Key>
+          <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="t_Сontract" Relationship="Self.FK_t_Сontract_t_Client" FromRole="t_Client" ToRole="t_Сontract" />
+        </EntityType>
+        <EntityType Name="t_InfoCar">
+          <Key>
+            <PropertyRef Name="IDInfoAuto" />
+          </Key>
+          <Property Name="IDInfoAuto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberOfSeats" Type="Int16" />
+          <Property Name="YearOfR" Type="Int16" />
+          <Property Name="VINNumber" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="BodyColor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HP" Type="Int16" />
+          <Property Name="Mileage" Type="Int32" />
+          <NavigationProperty Name="t_Car" Relationship="Self.Car_FK" FromRole="t_InfoCar" ToRole="t_Car" />
+        </EntityType>
+        <EntityType Name="t_Manager">
+          <Key>
+            <PropertyRef Name="IDManager" />
+          </Key>
+          <Property Name="IDManager" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Earnings" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="t_Сontract" Relationship="Self.FK_t_Сontract_t_Manager" FromRole="t_Manager" ToRole="t_Сontract" />
+        </EntityType>
+        <EntityType Name="t_Сontract">
+          <Key>
+            <PropertyRef Name="IDContract" />
+          </Key>
+          <Property Name="IDContract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarNumber" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDClient" Type="Int32" Nullable="false" />
+          <Property Name="IDManager" Type="Int32" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Summa" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DateOfConclusion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t_Car" Relationship="Self.FK_t_Сontract_t_Car" FromRole="t_Сontract" ToRole="t_Car" />
+          <NavigationProperty Name="t_Client" Relationship="Self.FK_t_Сontract_t_Client" FromRole="t_Сontract" ToRole="t_Client" />
+          <NavigationProperty Name="t_Manager" Relationship="Self.FK_t_Сontract_t_Manager" FromRole="t_Сontract" ToRole="t_Manager" />
+        </EntityType>
+        <EntityType Name="v_InfoCar">
+          <Key>
+            <PropertyRef Name="Brand" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="CarNumber" />
+          </Key>
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CarNumber" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="Car_FK">
+          <End Role="t_InfoCar" Type="Self.t_InfoCar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Car" Type="Self.t_Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_InfoCar">
+              <PropertyRef Name="IDInfoAuto" />
+            </Principal>
+            <Dependent Role="t_Car">
+              <PropertyRef Name="IDInfoAuto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Сontract_t_Car">
+          <End Role="t_Car" Type="Self.t_Car" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Сontract" Type="Self.t_Сontract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Car">
+              <PropertyRef Name="CarNumber" />
+            </Principal>
+            <Dependent Role="t_Сontract">
+              <PropertyRef Name="CarNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Сontract_t_Client">
+          <End Role="t_Client" Type="Self.t_Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Сontract" Type="Self.t_Сontract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Client">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="t_Сontract">
+              <PropertyRef Name="IDClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Сontract_t_Manager">
+          <End Role="t_Manager" Type="Self.t_Manager" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="t_Сontract" Type="Self.t_Сontract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Manager">
+              <PropertyRef Name="IDManager" />
+            </Principal>
+            <Dependent Role="t_Сontract">
+              <PropertyRef Name="IDManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RetroCarContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="t_ArchiveСontract" EntityType="Self.t_ArchiveСontract" />
+          <EntitySet Name="t_Car" EntityType="Self.t_Car" />
+          <EntitySet Name="t_Client" EntityType="Self.t_Client" />
+          <EntitySet Name="t_InfoCar" EntityType="Self.t_InfoCar" />
+          <EntitySet Name="t_Manager" EntityType="Self.t_Manager" />
+          <EntitySet Name="t_Сontract" EntityType="Self.t_Сontract" />
+          <EntitySet Name="v_InfoCar" EntityType="Self.v_InfoCar" />
+          <AssociationSet Name="Car_FK" Association="Self.Car_FK">
+            <End Role="t_InfoCar" EntitySet="t_InfoCar" />
+            <End Role="t_Car" EntitySet="t_Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Сontract_t_Car" Association="Self.FK_t_Сontract_t_Car">
+            <End Role="t_Car" EntitySet="t_Car" />
+            <End Role="t_Сontract" EntitySet="t_Сontract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Сontract_t_Client" Association="Self.FK_t_Сontract_t_Client">
+            <End Role="t_Client" EntitySet="t_Client" />
+            <End Role="t_Сontract" EntitySet="t_Сontract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Сontract_t_Manager" Association="Self.FK_t_Сontract_t_Manager">
+            <End Role="t_Manager" EntitySet="t_Manager" />
+            <End Role="t_Сontract" EntitySet="t_Сontract" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RetroCarModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RetroCarModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="usp_FreeCarOfDate" ReturnType="Collection(RetroCarModel.usp_FreeCarOfDate_Result)">
+            <Parameter Name="dateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="dateEnd" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_FreeCarOfDate_Result">
+          <Property Type="String" Name="CarNumber" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="Brand" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RetroCarModelContainer" CdmEntityContainer="RetroCarContext">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RetroCarModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_ArchiveСontract">
+            <EntityTypeMapping TypeName="RetroCarModel.t_ArchiveСontract">
+              <MappingFragment StoreEntitySet="t_ArchiveСontract">
+                <ScalarProperty Name="IDContract" ColumnName="IDContract" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="IDManager" ColumnName="IDManager" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="DateOfConclusion" ColumnName="DateOfConclusion" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Car">
+            <EntityTypeMapping TypeName="RetroCarModel.t_Car">
+              <MappingFragment StoreEntitySet="t_Car">
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="IDInfoAuto" ColumnName="IDInfoAuto" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Client">
+            <EntityTypeMapping TypeName="RetroCarModel.t_Client">
+              <MappingFragment StoreEntitySet="t_Client">
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_InfoCar">
+            <EntityTypeMapping TypeName="RetroCarModel.t_InfoCar">
+              <MappingFragment StoreEntitySet="t_InfoCar">
+                <ScalarProperty Name="IDInfoAuto" ColumnName="IDInfoAuto" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="NumberOfSeats" ColumnName="NumberOfSeats" />
+                <ScalarProperty Name="YearOfR" ColumnName="YearOfR" />
+                <ScalarProperty Name="VINNumber" ColumnName="VINNumber" />
+                <ScalarProperty Name="BodyColor" ColumnName="BodyColor" />
+                <ScalarProperty Name="HP" ColumnName="HP" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Manager">
+            <EntityTypeMapping TypeName="RetroCarModel.t_Manager">
+              <MappingFragment StoreEntitySet="t_Manager">
+                <ScalarProperty Name="IDManager" ColumnName="IDManager" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Earnings" ColumnName="Earnings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Сontract">
+            <EntityTypeMapping TypeName="RetroCarModel.t_Сontract">
+              <MappingFragment StoreEntitySet="t_Сontract">
+                <ScalarProperty Name="IDContract" ColumnName="IDContract" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="IDManager" ColumnName="IDManager" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="DateOfConclusion" ColumnName="DateOfConclusion" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_InfoCar">
+            <EntityTypeMapping TypeName="RetroCarModel.v_InfoCar">
+              <MappingFragment StoreEntitySet="v_InfoCar">
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище RetroCarModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище RetroCarModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище RetroCarModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище RetroCarModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetroCarModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище RetroCarModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetroCarModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище RetroCarModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище RetroCarModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="usp_FreeCarOfDate" FunctionName="Хранилище RetroCarModel.usp_FreeCarOfDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetroCarModel.usp_FreeCarOfDate_Result">
+                <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

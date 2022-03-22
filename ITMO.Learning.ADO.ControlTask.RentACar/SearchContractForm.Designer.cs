@@ -30,7 +30,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
         private void InitializeComponent()
         {
             this.btnOk = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -50,12 +50,12 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.btnOk.Text = "Найти";
             this.btnOk.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // tbValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(268, 26);
-            this.textBox1.TabIndex = 0;
+            this.tbValue.Location = new System.Drawing.Point(16, 43);
+            this.tbValue.Name = "tbValue";
+            this.tbValue.Size = new System.Drawing.Size(268, 26);
+            this.tbValue.TabIndex = 0;
             // 
             // label1
             // 
@@ -73,7 +73,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 142);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbValue);
             this.Controls.Add(this.btnOk);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -94,6 +94,6 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
 
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox tbValue;
     }
 }
