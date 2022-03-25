@@ -123,7 +123,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
                     if (SQLQuery.SearchClient(tbPhone) > 0) MessageBox.Show("Клиент с таким номером телефона уже есть в базе!", "Ошибка:", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
-                        string genderChar = "M";
+                        string genderChar = "М";
                         if (cbGender.Text == "Женский") genderChar = "Ж";
 
                         using (RetroCarContext rcr = new RetroCarContext())
@@ -203,9 +203,10 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             }
             foreach (var cb in NewContractForm.Controls.OfType<ComboBox>())
             {
-                cb.Text = "";
+                cb.SelectedItem = null;
                 Validation.SetColorComboBox(cb, true);
             }
+
             dtStart.Value = DateTime.Now;
             dtEnd.Value = DateTime.Now;
             AutoRepository.changeFlag = false;
@@ -238,7 +239,10 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             }
         }
         //Обновление стоимости аренды в Label
-        private void cbAuto_SelectedValueChanged(object sender, EventArgs e) { lbPrice.Text = AutoRepository.Price(cbAuto.SelectedIndex); }
+        private void cbAuto_SelectedValueChanged(object sender, EventArgs e) 
+        {
+            if(cbAuto.SelectedItem != null) lbPrice.Text = AutoRepository.Price(cbAuto.SelectedIndex); 
+        }
         //Устанавливаем флаг о изменении дат
         private void dtStart_ValueChanged(object sender, EventArgs e) { AutoRepository.changeFlag = true; }
         private void dtEnd_ValueChanged(object sender, EventArgs e) { AutoRepository.changeFlag = true; }
@@ -313,7 +317,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
                                 rcr.SaveChanges();
                                 var items = new Dictionary<string, string>
                             {
-                                { "{cManager}", WorkForm.ActiveForm.Text.Remove(0, 19) },
+                                { "{cManager}", WorkForm.ActiveForm.Text.Remove(0, 16) },
                                 { "{cNum}", contract.IDContract.ToString() },
                                 { "{cDate}", DateTime.Now.ToString("d") },
                                 { "{cClient}", sbClientFio.ToString() },
@@ -439,7 +443,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
                         .First();
                     rowIndex = row.Index;
                     dgContract.Rows[rowIndex].Selected = true;
-                    SQLQuery.FillClientInTable(dgClient, int.Parse(dgContract.CurrentRow.Cells[7].Value.ToString()));
+                    SQLQuery.FillClientInTable(dgClient, int.Parse(dgContract.Rows[rowIndex].Cells[7].Value.ToString()));
                 }
             }
             catch (InvalidOperationException error) { MessageBox.Show(error.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -538,7 +542,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
                         .First();
                     rowIndex = row.Index;
                     dgArchiveContract.Rows[rowIndex].Selected = true;
-                    SQLQuery.FillClientInTable(dgArchiveClient, int.Parse(dgArchiveContract.CurrentRow.Cells[7].Value.ToString()));
+                    SQLQuery.FillClientInTable(dgArchiveClient, int.Parse(dgArchiveContract.Rows[rowIndex].Cells[7].Value.ToString()));
                 }
             }
             catch (InvalidOperationException error) { MessageBox.Show(error.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }

@@ -31,13 +31,13 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.btnMenuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuPaperwork = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,12 +72,6 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btnContractConfirm = new System.Windows.Forms.ToolStripButton();
-            this.SecondMenuArchiveContract = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.btnArchiveContractUpdate = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.btnArchiveContractSearch = new System.Windows.Forms.ToolStripButton();
             this.SecondMenuNewContractPanel = new System.Windows.Forms.ToolStrip();
             this.toolStripLbClient = new System.Windows.Forms.ToolStripLabel();
             this.btnClientSearch = new System.Windows.Forms.ToolStripButton();
@@ -91,6 +85,12 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.toolStripLbForm = new System.Windows.Forms.ToolStripLabel();
             this.btnClearForm = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.SecondMenuArchiveContract = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.btnArchiveContractUpdate = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.btnArchiveContractSearch = new System.Windows.Forms.ToolStripButton();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.tbLabelAuto = new System.Windows.Forms.TextBox();
             this.dgAuto = new System.Windows.Forms.DataGridView();
@@ -188,8 +188,8 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.AuthorizationBox.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.SecondMenuMainPanel.SuspendLayout();
-            this.SecondMenuArchiveContract.SuspendLayout();
             this.SecondMenuNewContractPanel.SuspendLayout();
+            this.SecondMenuArchiveContract.SuspendLayout();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAuto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgClient)).BeginInit();
@@ -370,9 +370,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(240)))), ((int)(((byte)(230)))));
+            this.MenuPanel.Controls.Add(this.SecondMenuArchiveContract);
             this.MenuPanel.Controls.Add(this.SecondMenuMainPanel);
             this.MenuPanel.Controls.Add(this.SecondMenuNewContractPanel);
-            this.MenuPanel.Controls.Add(this.SecondMenuArchiveContract);
             this.MenuPanel.Controls.Add(this.MainMenu);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
@@ -407,7 +407,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.toolStripLabel1,
             this.btnContractConfirm});
             this.SecondMenuMainPanel.Location = new System.Drawing.Point(0, 26);
-            this.SecondMenuMainPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.SecondMenuMainPanel.Margin = new System.Windows.Forms.Padding(5);
             this.SecondMenuMainPanel.Name = "SecondMenuMainPanel";
             this.SecondMenuMainPanel.Padding = new System.Windows.Forms.Padding(0);
             this.SecondMenuMainPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -534,67 +534,6 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.btnContractConfirm.Size = new System.Drawing.Size(29, 29);
             this.btnContractConfirm.Click += new System.EventHandler(this.btnContractConfirm_Click);
             // 
-            // SecondMenuArchiveContract
-            // 
-            this.SecondMenuArchiveContract.BackColor = System.Drawing.Color.White;
-            this.SecondMenuArchiveContract.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SecondMenuArchiveContract.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.SecondMenuArchiveContract.GripMargin = new System.Windows.Forms.Padding(5);
-            this.SecondMenuArchiveContract.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.SecondMenuArchiveContract.ImageScalingSize = new System.Drawing.Size(25, 25);
-            this.SecondMenuArchiveContract.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
-            this.btnArchiveContractUpdate,
-            this.toolStripSeparator7,
-            this.toolStripLabel5,
-            this.btnArchiveContractSearch});
-            this.SecondMenuArchiveContract.Location = new System.Drawing.Point(0, 32);
-            this.SecondMenuArchiveContract.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.SecondMenuArchiveContract.Name = "SecondMenuArchiveContract";
-            this.SecondMenuArchiveContract.Padding = new System.Windows.Forms.Padding(0);
-            this.SecondMenuArchiveContract.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.SecondMenuArchiveContract.Size = new System.Drawing.Size(1155, 26);
-            this.SecondMenuArchiveContract.TabIndex = 21;
-            this.SecondMenuArchiveContract.Text = "toolStrip1";
-            this.SecondMenuArchiveContract.Visible = false;
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(91, 23);
-            this.toolStripLabel2.Text = "Обновление:";
-            // 
-            // btnArchiveContractUpdate
-            // 
-            this.btnArchiveContractUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnArchiveContractUpdate.Image = global::ITMO.Learning.ADO.ControlTask.RentACar.Properties.Resources.Refreh;
-            this.btnArchiveContractUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnArchiveContractUpdate.Name = "btnArchiveContractUpdate";
-            this.btnArchiveContractUpdate.Size = new System.Drawing.Size(29, 23);
-            this.btnArchiveContractUpdate.ToolTipText = "Обновить данные.";
-            this.btnArchiveContractUpdate.Click += new System.EventHandler(this.btnArchiveContractUpdate_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 26);
-            // 
-            // toolStripLabel5
-            // 
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(51, 23);
-            this.toolStripLabel5.Text = "Поиск:";
-            // 
-            // btnArchiveContractSearch
-            // 
-            this.btnArchiveContractSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnArchiveContractSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnArchiveContractSearch.Image")));
-            this.btnArchiveContractSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnArchiveContractSearch.Name = "btnArchiveContractSearch";
-            this.btnArchiveContractSearch.Size = new System.Drawing.Size(29, 23);
-            this.btnArchiveContractSearch.ToolTipText = "Поиск договора по его номеру.";
-            this.btnArchiveContractSearch.Click += new System.EventHandler(this.btnArchiveContractSearch_Click);
-            // 
             // SecondMenuNewContractPanel
             // 
             this.SecondMenuNewContractPanel.BackColor = System.Drawing.Color.White;
@@ -617,7 +556,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.btnClearForm,
             this.toolStripSeparator2});
             this.SecondMenuNewContractPanel.Location = new System.Drawing.Point(0, 26);
-            this.SecondMenuNewContractPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.SecondMenuNewContractPanel.Margin = new System.Windows.Forms.Padding(5);
             this.SecondMenuNewContractPanel.Name = "SecondMenuNewContractPanel";
             this.SecondMenuNewContractPanel.Padding = new System.Windows.Forms.Padding(0);
             this.SecondMenuNewContractPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -718,6 +657,67 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
             // 
+            // SecondMenuArchiveContract
+            // 
+            this.SecondMenuArchiveContract.BackColor = System.Drawing.Color.White;
+            this.SecondMenuArchiveContract.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SecondMenuArchiveContract.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.SecondMenuArchiveContract.GripMargin = new System.Windows.Forms.Padding(5);
+            this.SecondMenuArchiveContract.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.SecondMenuArchiveContract.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.SecondMenuArchiveContract.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.btnArchiveContractUpdate,
+            this.toolStripSeparator7,
+            this.toolStripLabel5,
+            this.btnArchiveContractSearch});
+            this.SecondMenuArchiveContract.Location = new System.Drawing.Point(0, 26);
+            this.SecondMenuArchiveContract.Margin = new System.Windows.Forms.Padding(5);
+            this.SecondMenuArchiveContract.Name = "SecondMenuArchiveContract";
+            this.SecondMenuArchiveContract.Padding = new System.Windows.Forms.Padding(0);
+            this.SecondMenuArchiveContract.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.SecondMenuArchiveContract.Size = new System.Drawing.Size(1155, 32);
+            this.SecondMenuArchiveContract.TabIndex = 21;
+            this.SecondMenuArchiveContract.Text = "toolStrip1";
+            this.SecondMenuArchiveContract.Visible = false;
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(91, 29);
+            this.toolStripLabel2.Text = "Обновление:";
+            // 
+            // btnArchiveContractUpdate
+            // 
+            this.btnArchiveContractUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnArchiveContractUpdate.Image = global::ITMO.Learning.ADO.ControlTask.RentACar.Properties.Resources.Refreh;
+            this.btnArchiveContractUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnArchiveContractUpdate.Name = "btnArchiveContractUpdate";
+            this.btnArchiveContractUpdate.Size = new System.Drawing.Size(29, 29);
+            this.btnArchiveContractUpdate.ToolTipText = "Обновить данные.";
+            this.btnArchiveContractUpdate.Click += new System.EventHandler(this.btnArchiveContractUpdate_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(51, 29);
+            this.toolStripLabel5.Text = "Поиск:";
+            // 
+            // btnArchiveContractSearch
+            // 
+            this.btnArchiveContractSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnArchiveContractSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnArchiveContractSearch.Image")));
+            this.btnArchiveContractSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnArchiveContractSearch.Name = "btnArchiveContractSearch";
+            this.btnArchiveContractSearch.Size = new System.Drawing.Size(29, 29);
+            this.btnArchiveContractSearch.ToolTipText = "Поиск договора по его номеру.";
+            this.btnArchiveContractSearch.Click += new System.EventHandler(this.btnArchiveContractSearch_Click);
+            // 
             // MainPanel
             // 
             this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -761,14 +761,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.dgAuto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgAuto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.dgAuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgAuto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgAuto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgAuto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAuto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -849,7 +849,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.tbLabelClient.ReadOnly = true;
             this.tbLabelClient.Size = new System.Drawing.Size(1131, 29);
             this.tbLabelClient.TabIndex = 14;
-            this.tbLabelClient.Text = "Информация о клиента:";
+            this.tbLabelClient.Text = "Информация о клиенте:";
             this.tbLabelClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbLabelContract
@@ -876,14 +876,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.dgClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgClient.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.dgClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dgClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cName,
@@ -973,14 +973,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.dgContract.Location = new System.Drawing.Point(12, 43);
             this.dgContract.MultiSelect = false;
             this.dgContract.Name = "dgContract";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgContract.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgContract.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgContract.RowHeadersVisible = false;
             this.dgContract.RowHeadersWidth = 51;
             this.dgContract.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1116,7 +1116,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(4, 1);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label5.Padding = new System.Windows.Forms.Padding(5);
             this.label5.Size = new System.Drawing.Size(499, 34);
             this.label5.TabIndex = 0;
             this.label5.Text = "Данные нового договора:";
@@ -1126,7 +1126,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.tbClientSurname.BackColor = System.Drawing.Color.White;
             this.tbClientSurname.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbClientSurname.Location = new System.Drawing.Point(243, 256);
+            this.tbClientSurname.Location = new System.Drawing.Point(243, 252);
             this.tbClientSurname.Name = "tbClientSurname";
             this.tbClientSurname.Size = new System.Drawing.Size(260, 29);
             this.tbClientSurname.TabIndex = 4;
@@ -1136,7 +1136,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.tbClientName.BackColor = System.Drawing.Color.White;
             this.tbClientName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbClientName.Location = new System.Drawing.Point(243, 220);
+            this.tbClientName.Location = new System.Drawing.Point(243, 216);
             this.tbClientName.Name = "tbClientName";
             this.tbClientName.Size = new System.Drawing.Size(260, 29);
             this.tbClientName.TabIndex = 3;
@@ -1145,9 +1145,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 253);
+            this.label8.Location = new System.Drawing.Point(4, 249);
             this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label8.Padding = new System.Windows.Forms.Padding(5);
             this.label8.Size = new System.Drawing.Size(106, 34);
             this.label8.TabIndex = 4;
             this.label8.Text = "Фамилия:";
@@ -1155,9 +1155,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 217);
+            this.label7.Location = new System.Drawing.Point(4, 213);
             this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label7.Padding = new System.Windows.Forms.Padding(5);
             this.label7.Size = new System.Drawing.Size(61, 34);
             this.label7.TabIndex = 4;
             this.label7.Text = "Имя:";
@@ -1165,9 +1165,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 147);
+            this.label14.Location = new System.Drawing.Point(4, 143);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label14.Padding = new System.Windows.Forms.Padding(5);
             this.label14.Size = new System.Drawing.Size(125, 34);
             this.label14.TabIndex = 4;
             this.label14.Text = "Стоимость:";
@@ -1177,7 +1177,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(4, 108);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label3.Padding = new System.Windows.Forms.Padding(5);
             this.label3.Size = new System.Drawing.Size(232, 34);
             this.label3.TabIndex = 0;
             this.label3.Text = "Выберите Автомобиль:";
@@ -1187,7 +1187,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(4, 72);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label6.Padding = new System.Windows.Forms.Padding(5);
             this.label6.Size = new System.Drawing.Size(199, 34);
             this.label6.TabIndex = 0;
             this.label6.Text = "Дата конца аренды:";
@@ -1208,7 +1208,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(4, 36);
             this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label15.Padding = new System.Windows.Forms.Padding(5);
             this.label15.Size = new System.Drawing.Size(208, 34);
             this.label15.TabIndex = 0;
             this.label15.Text = "Дата начала аренды:";
@@ -1228,9 +1228,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.lbPrice.AutoSize = true;
             this.lbPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPrice.Location = new System.Drawing.Point(243, 147);
+            this.lbPrice.Location = new System.Drawing.Point(243, 143);
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lbPrice.Padding = new System.Windows.Forms.Padding(5);
             this.lbPrice.Size = new System.Drawing.Size(260, 34);
             this.lbPrice.TabIndex = 4;
             this.lbPrice.Text = "0,00 руб.";
@@ -1240,9 +1240,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.label4.AutoSize = true;
             this.NewContractForm.SetColumnSpan(this.label4, 2);
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(4, 182);
+            this.label4.Location = new System.Drawing.Point(4, 178);
             this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label4.Padding = new System.Windows.Forms.Padding(5);
             this.label4.Size = new System.Drawing.Size(499, 34);
             this.label4.TabIndex = 0;
             this.label4.Text = "Клиент:";
@@ -1251,9 +1251,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 472);
+            this.label13.Location = new System.Drawing.Point(4, 464);
             this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label13.Padding = new System.Windows.Forms.Padding(5);
             this.label13.Size = new System.Drawing.Size(173, 34);
             this.label13.TabIndex = 4;
             this.label13.Text = "Номер паспорта:";
@@ -1262,7 +1262,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.tbPassportNumber.BackColor = System.Drawing.Color.White;
             this.tbPassportNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPassportNumber.Location = new System.Drawing.Point(243, 475);
+            this.tbPassportNumber.Location = new System.Drawing.Point(243, 467);
             this.tbPassportNumber.Mask = "00 00 00";
             this.tbPassportNumber.Name = "tbPassportNumber";
             this.tbPassportNumber.Size = new System.Drawing.Size(260, 29);
@@ -1273,7 +1273,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.tbPassportSeries.BackColor = System.Drawing.Color.White;
             this.tbPassportSeries.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPassportSeries.Location = new System.Drawing.Point(243, 439);
+            this.tbPassportSeries.Location = new System.Drawing.Point(243, 431);
             this.tbPassportSeries.Mask = "00 00";
             this.tbPassportSeries.Name = "tbPassportSeries";
             this.tbPassportSeries.Size = new System.Drawing.Size(260, 29);
@@ -1284,7 +1284,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.tbPhone.BackColor = System.Drawing.Color.White;
             this.tbPhone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPhone.Location = new System.Drawing.Point(243, 403);
+            this.tbPhone.Location = new System.Drawing.Point(243, 395);
             this.tbPhone.Mask = "+7 000 000 00 00";
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(260, 29);
@@ -1299,7 +1299,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.cbGender.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
-            this.cbGender.Location = new System.Drawing.Point(243, 364);
+            this.cbGender.Location = new System.Drawing.Point(243, 360);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(260, 32);
             this.cbGender.TabIndex = 6;
@@ -1310,7 +1310,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.nAge.BackColor = System.Drawing.Color.White;
             this.nAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nAge.Location = new System.Drawing.Point(243, 328);
+            this.nAge.Location = new System.Drawing.Point(243, 324);
             this.nAge.Maximum = new decimal(new int[] {
             130,
             0,
@@ -1333,9 +1333,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 436);
+            this.label12.Location = new System.Drawing.Point(4, 428);
             this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label12.Padding = new System.Windows.Forms.Padding(5);
             this.label12.Size = new System.Drawing.Size(170, 34);
             this.label12.TabIndex = 4;
             this.label12.Text = "Серия паспорта:";
@@ -1343,9 +1343,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 400);
+            this.label11.Location = new System.Drawing.Point(4, 392);
             this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label11.Padding = new System.Windows.Forms.Padding(5);
             this.label11.Size = new System.Drawing.Size(105, 34);
             this.label11.TabIndex = 4;
             this.label11.Text = "Телефон:";
@@ -1353,9 +1353,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 361);
+            this.label10.Location = new System.Drawing.Point(4, 357);
             this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label10.Padding = new System.Windows.Forms.Padding(5);
             this.label10.Size = new System.Drawing.Size(59, 34);
             this.label10.TabIndex = 4;
             this.label10.Text = "Пол:";
@@ -1363,9 +1363,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 325);
+            this.label9.Location = new System.Drawing.Point(4, 321);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label9.Padding = new System.Windows.Forms.Padding(5);
             this.label9.Size = new System.Drawing.Size(99, 34);
             this.label9.TabIndex = 4;
             this.label9.Text = "Возраст:";
@@ -1373,9 +1373,9 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 289);
+            this.label16.Location = new System.Drawing.Point(4, 285);
             this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label16.Padding = new System.Windows.Forms.Padding(5);
             this.label16.Size = new System.Drawing.Size(113, 34);
             this.label16.TabIndex = 4;
             this.label16.Text = "Отчество:";
@@ -1384,7 +1384,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             // 
             this.tbClientPatronymic.BackColor = System.Drawing.Color.White;
             this.tbClientPatronymic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbClientPatronymic.Location = new System.Drawing.Point(243, 292);
+            this.tbClientPatronymic.Location = new System.Drawing.Point(243, 288);
             this.tbClientPatronymic.Name = "tbClientPatronymic";
             this.tbClientPatronymic.Size = new System.Drawing.Size(260, 29);
             this.tbClientPatronymic.TabIndex = 4;
@@ -1399,14 +1399,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgInfoClientContract.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgInfoClientContract.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgInfoClientContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgInfoClientContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.dgInfoClientContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgInfoClientContract.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cClientInfoIDContract,
@@ -1417,14 +1417,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.cClientInfoDateOfСonclusions,
             this.cClientInfoCause,
             this.cClientInfoIDClient});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgInfoClientContract.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgInfoClientContract.DefaultCellStyle = dataGridViewCellStyle33;
             this.dgInfoClientContract.Location = new System.Drawing.Point(526, 109);
             this.dgInfoClientContract.MultiSelect = false;
             this.dgInfoClientContract.Name = "dgInfoClientContract";
@@ -1630,7 +1630,7 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.tbArchiveClient.ReadOnly = true;
             this.tbArchiveClient.Size = new System.Drawing.Size(1131, 29);
             this.tbArchiveClient.TabIndex = 14;
-            this.tbArchiveClient.Text = "Информация о клиента:";
+            this.tbArchiveClient.Text = "Информация о клиенте:";
             this.tbArchiveClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbArhiveContract
@@ -1657,14 +1657,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.dgArchiveClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgArchiveClient.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.dgArchiveClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgArchiveClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgArchiveClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dgArchiveClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgArchiveClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
@@ -1741,14 +1741,14 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgArchiveContract.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgArchiveContract.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgArchiveContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgArchiveContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgArchiveContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgArchiveContract.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn20,
@@ -1859,10 +1859,10 @@ namespace ITMO.Learning.ADO.ControlTask.RentACar
             this.MenuPanel.PerformLayout();
             this.SecondMenuMainPanel.ResumeLayout(false);
             this.SecondMenuMainPanel.PerformLayout();
-            this.SecondMenuArchiveContract.ResumeLayout(false);
-            this.SecondMenuArchiveContract.PerformLayout();
             this.SecondMenuNewContractPanel.ResumeLayout(false);
             this.SecondMenuNewContractPanel.PerformLayout();
+            this.SecondMenuArchiveContract.ResumeLayout(false);
+            this.SecondMenuArchiveContract.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAuto)).EndInit();
